@@ -3,12 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Shannon_Fano_Coding</RootNamespace>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="HandyControl" Version="3.1.0" />
-  </ItemGroup>
 
 </Project>

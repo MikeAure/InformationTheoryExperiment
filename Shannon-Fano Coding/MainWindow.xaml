@@ -4,29 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shannon_Fano_Coding"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="600">
-    <Grid>
-        <StackPanel VerticalAlignment="Center" Height="300" >
-            <CheckBox x:Name="fileSelection" Content="Read from file" HorizontalAlignment="Center" Margin="5" />
-           
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <StackPanel Orientation="Vertical" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="10">
-                    <Label Target="{Binding ElementName=numberInput}">Number:</Label>
-                    <TextBox x:Name="numberInput" Height="20" Width="100" Margin="10"/>
-                    <Label Target="{Binding ElementName=dataInput}">Data:</Label>
-                    <TextBox x:Name="dataInput" Height="20" Width="100" Margin="10"/>
+        Title="ShannonCodeCalculator" Height="400" Width="600"
+        Background="AliceBlue">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
 
-                </StackPanel>
-                
-                <TextBox x:Name="showText" Margin="50" IsReadOnly="True" Height="100" Width="180"/>
-                
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Button x:Name="chooseFile" Content="Init Data" Margin="10" Width="100" Height="40" Click="chooseFile_Click"/>
-                <Button x:Name="convertFile" Content=" Convert" Margin="10" Width="100" Height="40" Click="convertFile_Click"/>
-            </StackPanel>
-        </StackPanel>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="300*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <CheckBox x:Name="fileSelection" Content="Read from file" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Column="0" Width="100" Height="18"   />
+
+
+        <Label Target="{Binding ElementName=numberInput}" Grid.Row="1" Grid.Column="0" Margin="5,0,0,0" HorizontalAlignment="Left" >Number:</Label>
+        <Label Target="{Binding ElementName=dataInput}" Grid.Row="3" Margin="5,0,0,0" Grid.Column="0" HorizontalAlignment="Left" >Data:</Label>
+        <Label Target="{Binding ElementName=showText}" Grid.Row="1" Margin="5,0,0,0" Grid.Column="2" HorizontalAlignment="Left" >FileContent:</Label>
+        <TextBox x:Name="numberInput" Margin="5,5,5,5" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" />
+        <TextBox x:Name="dataInput" Margin="5,5,5,5" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="showText" IsReadOnly="True" Margin="5,5,5,5" Grid.Row="2" Grid.Column="2" Grid.RowSpan="3"/>
+
+
+        <Button x:Name="chooseFile" Style="{StaticResource ButtonPrimary}" Content="Init Data" Click="chooseFile_Click" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Height="30" Width="64"/>
+        <Button x:Name="convertFile" Style="{StaticResource ButtonPrimary}" Content=" Convert" Click="convertFile_Click" Grid.Column="2" Grid.Row="6" Height="30" Width="64"/>
+
+
 
     </Grid>
 </Window>
